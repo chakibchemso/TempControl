@@ -1,17 +1,18 @@
 from math import log
 
 from machine import ADC
-from machine import idle
 
 # CONSTANTS
-VCC = 3.3  # Voltage In
+UV_TO_V_CONVERSION = 1e-6  # Microvolts in a Volt
 T_0 = 298.15  # Kelvin
-THERM_MIN = 263  # Kelvin, min expected thermistor value
-THERM_MAX = 333  # Kelvin, max expected thermistor value
 KELVIN_AT_0_CELSIUS = 273.15
-UV_TO_V_CONVERSION = 1e6  # Microvolts in a Volt
 FAHRENHEIT_MULTIPLIER = 9 / 5
 FAHRENHEIT_OFFSET = 32
+
+VCC = 3.3  # Voltage In
+ADC_SAMPLES = 32
+THERM_MIN = 218.15  # Kelvin, min expected
+THERM_MAX = 398.15  # Kelvin, max expected
 
 
 class Thermistor:
@@ -25,12 +26,10 @@ class Thermistor:
         """
         Assumes a voltage divider with ground side thermistor, provides the voltage drop across the thermistor.
         """
-        samples = 32
         total = 0
-        for _ in range(samples):
-            total += self.pin.read_uv() / UV_TO_V_CONVERSION
-            idle()
-        return total / samples  # adjust for ADC overvoltage
+        for _ in range(ADC_SAMPLES):
+            total += self.pin.read_uv() * UV_TO_V_CONVERSION
+        return total / ADC_SAMPLES  # adjust for ADC overvoltage
 
     def read_resistance(self):
         """
