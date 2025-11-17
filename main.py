@@ -40,13 +40,20 @@ fan = Fan(pwm_pin=PIN_FAN_PWM, tach_pin=PIN_FAN_TACH, target_rpm=3_000, kp=K, ki
 
 renderer = Renderer(display, touch, shared)
 
-while True:
-    shared['temp'] = therm.read_temperature_celsius()
-    shared['rpm'], duty = fan.update()
-    renderer.update()
+min_temp = shared['min_temp']
+max_temp = shared['max_temp']
 
-    fan.set_target_rpm(
-        FAN_MAX_RPM * max(0.01, min(1.0, (shared['temp'] - shared['min_temp']) / (shared['max_temp'] - shared['min_temp']))))
+while True:
+    temp = therm.read_temperature_celsius()
+    rpm, duty = fan.update()
+    renderer.update()
+    
+    shared['temp'] = temp
+    shared['rpm'] = rpm
+    
+    temp_normalized = (temp - min_temp) / (max_temp - min_temp)
+
+    fan.set_target_rpm(FAN_MAX_RPM * max(0.001, min(1.0, temp_normalized)))
 
     print(f"Temp: {shared['temp']:.2f} C, RPM: {shared['rpm']}, Duty: {duty / 65535.0:.2f}")
     # idle() not needed here, as other drivers use it internally

@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7aa76d38-007f-42e3-8d36-721df1b55828" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/drivers/thermistor.py" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/thermistor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="7aa76d38-007f-42e3-8d36-721df1b55828" name="Changes" comment="Add workspace configuration and update pin definitions in main.py and thermistor.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,6 +81,19 @@
       <option name="presentableId" value="Default" />
       <updated>1762523544015</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add workspace configuration and update pin definitions in main.py and thermistor.py">
+      <option name="closed" value="true" />
+      <created>1763253900856</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763253900856</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add workspace configuration and update pin definitions in main.py and thermistor.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add workspace configuration and update pin definitions in main.py and thermistor.py" />
   </component>
 </project>
