@@ -87,7 +87,7 @@ class Renderer:
                                ((self.shared['temp'] - self.shared['min_temp']) / (
                                            self.shared['max_temp'] - self.shared['min_temp'])),
                                COLOR_RED, COLOR_WHITE)
-        self.draw_progress_bar(10, 95, 140, 10, (self.shared['rpm'] / 7000), COLOR_CYAN, COLOR_WHITE)
+        self.draw_progress_bar(10, 95, 140, 10, (self.shared['rpm'] / self.shared['max_rpm']), COLOR_CYAN, COLOR_WHITE)
 
         self.display.draw_text8x8(172, 56, f"{self.shared['temp']:.2f} C", COLOR_RED)
         self.display.draw_text8x8(172, 96, f"{self.shared['rpm']} RPM", COLOR_CYAN)

@@ -1,6 +1,7 @@
 # fan.py (smoothed PID, minimal changes)
 import time
 
+import machine
 from machine import Pin, PWM, idle
 
 
